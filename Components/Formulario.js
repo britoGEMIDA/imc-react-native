@@ -1,12 +1,5 @@
 import React, { useState } from "react";
-import {
-  View,
-  Text,
-  TextInput,
-  Pressable,
-  Alert,
-  StyleSheet,
-} from "react-native";
+import { View, Text, TextInput, Pressable, Alert, StyleSheet } from "react-native";
 import calculaImc from "./Imc";
 
 // Define o componente Formulario
@@ -31,10 +24,7 @@ const Formulario = () => {
   const calculaImcHandler = () => {
     // Verifica se os valores de peso e altura são válidos
     if (!peso || !altura) {
-      Alert.alert(
-        "Erro",
-        "Por favor, insira valores válidos para peso e altura."
-      );
+      Alert.alert("Erro", "Por favor, insira valores válidos para peso e altura.");
       return;
     }
 
@@ -54,15 +44,18 @@ const Formulario = () => {
       );
     } else if (resultado > 25 && resultado < 30) {
       Alert.alert(
-        `Olá ${nome}!``Seu IMC é de ${resultado}. Sua situação é de sobrepeso.`
+        `Olá ${nome}!`,
+        `Seu IMC é de ${resultado}. Sua situação é de sobrepeso.`
       );
     } else if (resultado >= 30 && resultado < 40) {
       Alert.alert(
-        `Olá ${nome}!``Seu IMC é de ${resultado}. Sua situação é de obesidade.`
+        `Olá ${nome}!`,
+        `Seu IMC é de ${resultado}. Sua situação é de obesidade.`
       );
     } else if (resultado >= 40) {
       Alert.alert(
-        `Olá ${nome}!Seu IMC é de ${resultado}. Sua situação é de obesidade grave.`
+        `Olá ${nome}!`,
+        `Seu IMC é de ${resultado}. Sua situação é de obesidade grave.`
       );
     }
   };
@@ -76,7 +69,6 @@ const Formulario = () => {
         placeholder="Informe seu nome"
         keyboardType="default"
       />
-
       <View style={estilos.boxInput}>
         <TextInput
           style={estilos.inputDois}
@@ -85,7 +77,6 @@ const Formulario = () => {
           keyboardType="numeric"
           value={peso}
         />
-
         <TextInput
           style={estilos.inputDois}
           onChangeText={capturaAltura}
@@ -96,7 +87,7 @@ const Formulario = () => {
       </View>
       <View style={estilos.boxBotao}>
         <Pressable style={estilos.botao} onPress={calculaImcHandler}>
-          <Text>Calcular IMC </Text>
+          <Text>Calcular IMC</Text>
         </Pressable>
       </View>
     </View>
@@ -120,14 +111,12 @@ const estilos = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
   },
-
   input: {
     height: 40,
     margin: 12,
     borderWidth: 1,
     padding: 10,
   },
-
   inputDois: {
     flex: 1,
     height: 40,
